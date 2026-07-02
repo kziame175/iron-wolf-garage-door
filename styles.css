@@ -834,6 +834,12 @@ ul {
   gap: 54px;
 }
 
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .carousel-controls {
   display: flex;
   gap: 10px;
@@ -908,6 +914,25 @@ ul {
   color: var(--muted);
   font-style: normal;
   font-weight: 680;
+}
+
+.review-card--static {
+  position: static;
+  min-height: 100%;
+  justify-content: flex-start;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  padding: 32px;
+}
+
+.review-card--static h3 {
+  font-size: 1.08rem;
+}
+
+.review-card--static p {
+  margin-top: 14px;
+  color: var(--muted);
 }
 
 .process-grid {
@@ -1185,6 +1210,11 @@ ul {
   gap: 8px;
 }
 
+.field--hidden {
+  position: absolute;
+  left: -9999px;
+}
+
 .field--full,
 .schedule-form button,
 .form-status {
@@ -1213,6 +1243,11 @@ ul {
 .field textarea {
   min-height: 108px;
   resize: vertical;
+}
+
+.schedule-form button[disabled] {
+  opacity: 0.72;
+  cursor: wait;
 }
 
 .field input:focus,
@@ -1674,6 +1709,10 @@ ul {
     grid-template-columns: 1fr;
   }
 
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
   .comparison {
     grid-template-columns: 1fr;
   }
@@ -1762,6 +1801,10 @@ ul {
   .area__grid,
   .final-cta__inner {
     gap: 30px;
+  }
+
+  .review-grid {
+    gap: 14px;
   }
 
   .compare {

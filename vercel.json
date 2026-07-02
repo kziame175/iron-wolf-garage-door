@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "ironwolfgaragedoor.com"
+        }
+      ],
+      "destination": "https://www.ironwolfgaragedoor.com/$1",
+      "permanent": true
+    }
+  ]
+}

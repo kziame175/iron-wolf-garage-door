@@ -174,8 +174,11 @@ const form = document.querySelector("[data-form]");
 
 if (form) {
   const status = form.querySelector("[data-form-status]");
+  const submitButton = form.querySelector("[data-form-submit]");
+  const emailField = form.querySelector("#email");
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     form.querySelectorAll(".field.is-invalid").forEach((field) => field.classList.remove("is-invalid"));
@@ -185,6 +188,8 @@ if (form) {
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const honey = String(data.get("_honey") || "").trim();
 
     if (!name || !phone) {
       if (!name) form.querySelector("#name")?.closest(".field")?.classList.add("is-invalid");
@@ -194,20 +199,57 @@ if (form) {
       return;
     }
 
+    if (email && !emailPattern.test(email)) {
+      emailField?.closest(".field")?.classList.add("is-invalid");
+      status.classList.add("is-error");
+      status.textContent = "Please check the email address or leave that field blank.";
+      return;
+    }
+
+    if (honey) {
+      status.textContent = "Thanks. We will be in touch shortly.";
+      form.reset();
+      return;
+    }
+
     const service = String(data.get("service") || "Garage door repair").trim();
     const details = String(data.get("details") || "").trim();
-    const body = [
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Service: ${service}`,
-      "",
-      "Details:",
-      details || "(none provided)"
-    ].join("\n");
+    const endpoint = form.getAttribute("action");
 
-    status.textContent = "Opening your email app. You can also call us directly if it does not open.";
-    window.location.href = `mailto:hello@ironwolfgaragedoor.com?subject=${encodeURIComponent(
-      `Quote request from ${name}`
-    )}&body=${encodeURIComponent(body)}`;
+    if (!endpoint) {
+      status.classList.add("is-error");
+      status.textContent = "The request form is unavailable right now. Please call 630-703-0039.";
+      return;
+    }
+
+    data.set("_subject", `New quote request: ${service}`);
+    if (email) data.set("_replyto", email);
+
+    submitButton?.setAttribute("disabled", "disabled");
+    submitButton?.setAttribute("aria-busy", "true");
+    status.textContent = "Sending your request...";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      form.reset();
+      status.textContent = "Thanks. Your request was sent and we will follow up during business hours.";
+    } catch (error) {
+      status.classList.add("is-error");
+      status.textContent = "We could not send the form just now. Please call 630-703-0039.";
+    } finally {
+      submitButton?.removeAttribute("disabled");
+      submitButton?.removeAttribute("aria-busy");
+    }
   });
 }

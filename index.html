@@ -413,34 +413,23 @@
     <section class="section reviews" aria-labelledby="reviews-title">
       <div class="container reviews__grid">
         <div class="section-heading reveal">
-          <p class="eyebrow">Customer reviews</p>
-          <h2 id="reviews-title">What homeowners want to feel after the repair.</h2>
-          <p>Clear pricing, fast communication, and clean work are the promises the whole experience is built around.</p>
-          <div class="carousel-controls">
-            <button type="button" data-review-prev aria-label="Previous review">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button type="button" data-review-next aria-label="Next review">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
+          <p class="eyebrow">Homeowner standards</p>
+          <h2 id="reviews-title">The trust-building details happen during the visit.</h2>
+          <p>Premium service is less about the headline and more about what the homeowner actually sees, hears, and signs off on before the truck leaves.</p>
         </div>
 
-        <div class="review-carousel reveal" data-review-carousel>
-          <article class="review-card is-active">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"The spring snapped before work and they had the door moving again the same afternoon. The price was explained before they started and did not change."</blockquote>
-            <cite>Naperville homeowner</cite>
+        <div class="review-grid reveal" aria-label="Service standards">
+          <article class="review-card review-card--static">
+            <h3>Photos before parts</h3>
+            <p>When a spring, cable, hinge, panel, or opener gear fails, we show the actual issue before we recommend the fix.</p>
           </article>
-          <article class="review-card">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"Another company pushed a replacement. Iron Wolf fixed the opener issue, tuned the door, and saved us a lot of money."</blockquote>
-            <cite>Wheaton homeowner</cite>
+          <article class="review-card review-card--static">
+            <h3>Repair-first recommendations</h3>
+            <p>If the safer, longer-lasting answer is a repair instead of a replacement, that option comes first and the pricing is written down.</p>
           </article>
-          <article class="review-card">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"Clean installation, no mess left behind, and the new door completely changed the front of the house."</blockquote>
-            <cite>Aurora homeowner</cite>
+          <article class="review-card review-card--static">
+            <h3>Warranty in writing</h3>
+            <p>You leave with the work documented, the parts listed, and the warranty spelled out instead of being left to remember a phone call.</p>
           </article>
         </div>
       </div>
@@ -566,7 +555,19 @@
           <h2 id="schedule-title">Finally, a garage door company you can trust.</h2>
           <p>Send the details or call now. You will get a clear next step, a clear price, and a technician who wants the repair to last.</p>
         </div>
-        <form class="schedule-form" data-form>
+        <form
+          class="schedule-form"
+          data-form
+          action="https://formsubmit.co/ajax/hello@ironwolfgaragedoor.com"
+          method="post"
+          accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="New Iron Wolf quote request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_url" value="https://www.ironwolfgaragedoor.com/#schedule">
+          <div class="field field--hidden" aria-hidden="true">
+            <label for="company">Company</label>
+            <input id="company" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" autocomplete="name" required placeholder="Jane Doe">
@@ -574,6 +575,10 @@
           <div class="field">
             <label for="phone">Phone</label>
             <input id="phone" name="phone" autocomplete="tel" inputmode="tel" required placeholder="630-703-0039">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="jane@example.com">
           </div>
           <div class="field">
             <label for="service">Service needed</label>
@@ -590,7 +595,7 @@
             <label for="details">Details</label>
             <textarea id="details" name="details" placeholder="What is happening with the door?"></textarea>
           </div>
-          <button class="button button--accent button--wide magnetic" type="submit">Send Request</button>
+          <button class="button button--accent button--wide magnetic" type="submit" data-form-submit>Send Request</button>
           <p class="form-status" data-form-status role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -630,7 +635,7 @@
     </div>
     <div class="container footer-bottom">
       <p>&copy; 2026 Iron Wolf Garage Door. All rights reserved.</p>
-      <p>Licensed &amp; insured. License #XXXXXXXX.</p>
+      <p>Licensed &amp; insured across Naperville and the western suburbs.</p>
     </div>
   </footer>
 
