@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /assets/brand/
 
 Sitemap: https://www.ironwolfgaragedoor.com/sitemap.xml

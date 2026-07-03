@@ -26,7 +26,10 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="preload" as="image" href="assets/hero-garage-door.jpg" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/hero-garage-door-640w.webp 640w, assets/hero-garage-door-960w.webp 960w, assets/hero-garage-door.webp 1200w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -170,7 +173,7 @@
 
     <div class="container nav-shell">
       <a class="brand" href="#top" aria-label="Iron Wolf Garage Door home">
-        <img class="brand__mark" src="assets/brand/iron-wolf-mark.png" alt="" width="512" height="512">
+        <img class="brand__mark" src="assets/brand/iron-wolf-mark-128.png" alt="" width="128" height="128">
         <span class="brand__text">
           <strong>Iron Wolf</strong>
           <span>Garage Door</span>
@@ -207,7 +210,11 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero__media" aria-hidden="true">
-        <img src="assets/hero-garage-door.jpg" alt="" width="1200" height="1130">
+        <picture>
+          <source type="image/webp" srcset="assets/hero-garage-door-640w.webp 640w, assets/hero-garage-door-960w.webp 960w, assets/hero-garage-door.webp 1200w" sizes="100vw">
+          <source type="image/jpeg" srcset="assets/hero-garage-door-640w.jpg 640w, assets/hero-garage-door-960w.jpg 960w, assets/hero-garage-door.jpg 1200w" sizes="100vw">
+          <img src="assets/hero-garage-door.jpg" alt="" width="1200" height="1130" fetchpriority="high">
+        </picture>
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
 
@@ -268,25 +275,25 @@
     <section class="metrics section" aria-labelledby="metrics-title">
       <div class="container">
         <div class="section-heading section-heading--center reveal">
-          <p class="eyebrow">Proof points</p>
+          <p class="eyebrow">What matters on service day</p>
           <h2 id="metrics-title">Built for homeowners who want the truth fast.</h2>
         </div>
         <div class="metrics__grid">
           <div class="metric reveal">
-            <strong><span data-count="3000">3,000</span>+</strong>
-            <span>garage door repairs</span>
+            <strong>Same-day</strong>
+            <span>windows for most repair calls</span>
           </div>
           <div class="metric reveal">
-            <strong><span data-count="1000">1,000</span>+</strong>
-            <span>new doors installed</span>
+            <strong>Repair-first</strong>
+            <span>we fix what can be fixed</span>
           </div>
           <div class="metric reveal">
-            <strong><span data-count="98">98</span>%</strong>
-            <span>first-visit fixes</span>
+            <strong>Written price</strong>
+            <span>before any parts go on</span>
           </div>
           <div class="metric reveal">
-            <strong><span data-count="15">15</span>+</strong>
-            <span>years of experience</span>
+            <strong>Warranty</strong>
+            <span>on parts and labor, in writing</span>
           </div>
         </div>
       </div>
@@ -331,7 +338,11 @@
         <div class="services-grid">
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="assets/service-garage-door-repair.jpg" alt="Technician repairing a residential garage door track" width="1586" height="992" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="assets/service-garage-door-repair-640w.webp 640w, assets/service-garage-door-repair-1000w.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <source type="image/jpeg" srcset="assets/service-garage-door-repair-640w.jpg 640w, assets/service-garage-door-repair-1000w.jpg 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <img src="assets/service-garage-door-repair.jpg" alt="Technician repairing a residential garage door track" width="1586" height="992" loading="lazy">
+              </picture>
             </div>
             <div class="service-card__body">
               <h3><a href="/services/garage-door-repair.html">Garage Door Repair</a></h3>
@@ -340,7 +351,11 @@
           </article>
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="assets/service-spring-replacement.jpg" alt="Technician replacing a torsion spring above a garage door" width="1586" height="992" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="assets/service-spring-replacement-640w.webp 640w, assets/service-spring-replacement-1000w.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <source type="image/jpeg" srcset="assets/service-spring-replacement-640w.jpg 640w, assets/service-spring-replacement-1000w.jpg 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <img src="assets/service-spring-replacement.jpg" alt="Technician replacing a torsion spring above a garage door" width="1586" height="992" loading="lazy">
+              </picture>
             </div>
             <div class="service-card__body">
               <h3><a href="/services/spring-replacement.html">Spring Replacement</a></h3>
@@ -349,7 +364,11 @@
           </article>
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="assets/service-opener-service.jpg" alt="Technician servicing a garage door opener motor" width="1586" height="992" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="assets/service-opener-service-640w.webp 640w, assets/service-opener-service-1000w.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <source type="image/jpeg" srcset="assets/service-opener-service-640w.jpg 640w, assets/service-opener-service-1000w.jpg 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <img src="assets/service-opener-service.jpg" alt="Technician servicing a garage door opener motor" width="1586" height="992" loading="lazy">
+              </picture>
             </div>
             <div class="service-card__body">
               <h3><a href="/services/opener-service.html">Opener Service</a></h3>
@@ -358,7 +377,11 @@
           </article>
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="assets/service-new-door-installation.jpg" alt="Technicians installing a new residential garage door panel" width="1586" height="992" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="assets/service-new-door-installation-640w.webp 640w, assets/service-new-door-installation-1000w.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <source type="image/jpeg" srcset="assets/service-new-door-installation-640w.jpg 640w, assets/service-new-door-installation-1000w.jpg 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <img src="assets/service-new-door-installation.jpg" alt="Technicians installing a new residential garage door panel" width="1586" height="992" loading="lazy">
+              </picture>
             </div>
             <div class="service-card__body">
               <h3><a href="/services/new-door-installation.html">New Door Installation</a></h3>
@@ -367,7 +390,11 @@
           </article>
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="assets/service-emergency-service.jpg" alt="Technician inspecting a stuck garage door during an evening service call" width="1586" height="992" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="assets/service-emergency-service-640w.webp 640w, assets/service-emergency-service-1000w.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <source type="image/jpeg" srcset="assets/service-emergency-service-640w.jpg 640w, assets/service-emergency-service-1000w.jpg 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <img src="assets/service-emergency-service.jpg" alt="Technician inspecting a stuck garage door during an evening service call" width="1586" height="992" loading="lazy">
+              </picture>
             </div>
             <div class="service-card__body">
               <h3><a href="/services/emergency-service.html">Emergency Service</a></h3>
@@ -376,7 +403,11 @@
           </article>
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="assets/service-tune-ups.jpg" alt="Technician lubricating and adjusting garage door rollers" width="1586" height="992" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="assets/service-tune-ups-640w.webp 640w, assets/service-tune-ups-1000w.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <source type="image/jpeg" srcset="assets/service-tune-ups-640w.jpg 640w, assets/service-tune-ups-1000w.jpg 1000w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 33vw">
+                <img src="assets/service-tune-ups.jpg" alt="Technician lubricating and adjusting garage door rollers" width="1586" height="992" loading="lazy">
+              </picture>
             </div>
             <div class="service-card__body">
               <h3><a href="/services/tune-ups.html">Tune-Ups</a></h3>
@@ -396,9 +427,17 @@
         </div>
 
         <div class="compare reveal" data-compare>
-          <img src="assets/hero-garage-door.jpg" alt="Finished carriage-style garage door">
+          <picture>
+            <source type="image/webp" srcset="assets/hero-garage-door-640w.webp 640w, assets/hero-garage-door-960w.webp 960w, assets/hero-garage-door.webp 1200w" sizes="(max-width: 920px) 100vw, 60vw">
+            <source type="image/jpeg" srcset="assets/hero-garage-door-640w.jpg 640w, assets/hero-garage-door-960w.jpg 960w, assets/hero-garage-door.jpg 1200w" sizes="(max-width: 920px) 100vw, 60vw">
+            <img src="assets/hero-garage-door.jpg" alt="Finished carriage-style garage door" loading="lazy">
+          </picture>
           <div class="compare__before" data-before>
-            <img src="assets/before-white-garage-door.jpg" alt="Plain white builder-grade garage door before replacement">
+            <picture>
+              <source type="image/webp" srcset="assets/before-white-garage-door-640w.webp 640w, assets/before-white-garage-door-1000w.webp 1000w, assets/before-white-garage-door.webp 1292w" sizes="(max-width: 920px) 100vw, 60vw">
+              <source type="image/jpeg" srcset="assets/before-white-garage-door-640w.jpg 640w, assets/before-white-garage-door-1000w.jpg 1000w, assets/before-white-garage-door.jpg 1292w" sizes="(max-width: 920px) 100vw, 60vw">
+              <img src="assets/before-white-garage-door.jpg" alt="Plain white builder-grade garage door before replacement" loading="lazy">
+            </picture>
           </div>
           <input type="range" min="0" max="100" value="52" aria-label="Before and after image comparison" data-compare-range>
           <div class="compare__handle" aria-hidden="true" data-handle></div>
