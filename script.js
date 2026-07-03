@@ -45,11 +45,13 @@ function animateCount(node) {
   const target = Number(node.dataset.count || 0);
   const duration = 1100;
   const start = performance.now();
+  const initial = Number(String(node.textContent || "").replace(/[^\d.-]/g, "")) || target;
 
   function tick(now) {
     const progress = Math.min((now - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    node.textContent = Math.round(target * eased).toLocaleString();
+    const value = initial + (target - initial) * eased;
+    node.textContent = Math.round(value).toLocaleString();
     if (progress < 1) requestAnimationFrame(tick);
   }
 
@@ -91,33 +93,6 @@ if (compare) {
 
   range.addEventListener("input", (event) => setCompare(event.target.value));
   setCompare(range.value);
-}
-
-const carousel = document.querySelector("[data-review-carousel]");
-const prevReview = document.querySelector("[data-review-prev]");
-const nextReview = document.querySelector("[data-review-next]");
-
-if (carousel) {
-  const cards = Array.from(carousel.querySelectorAll(".review-card"));
-  let active = cards.findIndex((card) => card.classList.contains("is-active"));
-  active = active >= 0 ? active : 0;
-
-  function showReview(nextIndex) {
-    cards[active].classList.remove("is-active");
-    active = (nextIndex + cards.length) % cards.length;
-    cards[active].classList.add("is-active");
-  }
-
-  prevReview?.addEventListener("click", () => showReview(active - 1));
-  nextReview?.addEventListener("click", () => showReview(active + 1));
-
-  if (!prefersReducedMotion) {
-    let timer = window.setInterval(() => showReview(active + 1), 7000);
-    carousel.addEventListener("pointerenter", () => window.clearInterval(timer));
-    carousel.addEventListener("pointerleave", () => {
-      timer = window.setInterval(() => showReview(active + 1), 7000);
-    });
-  }
 }
 
 const navLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
