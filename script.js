@@ -1,3 +1,20 @@
+// GA4 loader: activates only when the ga4-id meta tag holds a real measurement ID.
+// To enable, set <meta name="ga4-id" content="G-XXXXXXXXXX"> in each page's <head>.
+(function () {
+  const meta = document.querySelector('meta[name="ga4-id"]');
+  const id = meta && meta.content && meta.content.trim();
+  if (!id || id.indexOf("XXXX") !== -1) return;
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", id, { anonymize_ip: true });
+})();
+
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const menuButton = document.querySelector("[data-menu-button]");

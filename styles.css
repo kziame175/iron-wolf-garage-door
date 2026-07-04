@@ -1835,3 +1835,228 @@ ul {
     flex-direction: column;
   }
 }
+
+/* ============================================================
+   Blog article layout + callouts + dark check-list
+   ============================================================ */
+
+.article {
+  padding-block: 60px 40px;
+}
+
+.article__inner {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.article__header {
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.article__header h1 {
+  max-width: none;
+  margin-top: 10px;
+  font-size: 2.6rem;
+  line-height: 1.1;
+}
+
+.article__lede {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 1.18rem;
+  line-height: 1.55;
+}
+
+.article__byline {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.article__body {
+  font-size: 1.05rem;
+  line-height: 1.72;
+}
+
+.article__body h2 {
+  margin-top: 42px;
+  margin-bottom: 14px;
+  font-size: 1.7rem;
+  line-height: 1.18;
+}
+
+.article__body h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+  font-weight: 780;
+}
+
+.article__body p {
+  margin-top: 14px;
+  color: #2a2a2a;
+}
+
+.article__body strong {
+  color: var(--ink);
+  font-weight: 780;
+}
+
+.article__body em {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+.article__body a {
+  color: var(--orange-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.article__body a:hover,
+.article__body a:focus-visible {
+  color: var(--orange);
+  text-decoration-thickness: 2px;
+}
+
+.article__body ul.local-notes,
+.article__body ul.check-list {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.article__body ul.local-notes li {
+  position: relative;
+  padding-left: 26px;
+  margin-top: 10px;
+  color: #2a2a2a;
+}
+
+.article__body ul.local-notes li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.article__body .policy-grid {
+  margin-top: 26px;
+  margin-bottom: 30px;
+}
+
+.article__body .policy-card {
+  padding: 24px;
+}
+
+.article__body .policy-card h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+/* Callout blocks (warn, note, cta) */
+
+.callout {
+  margin: 30px 0;
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--muted);
+  background: var(--soft);
+}
+
+.callout strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 820;
+}
+
+.callout p {
+  margin-top: 4px;
+  color: #333;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.callout--warn {
+  border-left-color: #c43728;
+  background: #fdefec;
+}
+
+.callout--warn strong {
+  color: #922418;
+}
+
+.callout--note {
+  border-left-color: var(--blue);
+  background: #eef2f6;
+}
+
+.callout--note strong {
+  color: var(--blue);
+}
+
+.callout--cta {
+  border-left-color: var(--orange);
+  background: #fff2e5;
+}
+
+.callout--cta strong {
+  color: var(--orange-strong);
+}
+
+.callout--cta a {
+  color: var(--orange-strong);
+  font-weight: 760;
+  text-decoration: underline;
+}
+
+/* Dark check-list variant used in article body */
+
+.check-list--dark li {
+  color: var(--ink) !important;
+  font-weight: 640;
+}
+
+.check-list--dark li::before {
+  background: var(--ink) !important;
+  box-shadow: inset 0 0 0 4px rgba(237, 125, 34, 0.42) !important;
+}
+
+@media (max-width: 640px) {
+  .article {
+    padding-block: 44px 32px;
+  }
+
+  .article__header h1 {
+    font-size: 2rem;
+  }
+
+  .article__lede {
+    font-size: 1.02rem;
+  }
+
+  .article__body {
+    font-size: 1rem;
+  }
+
+  .article__body h2 {
+    margin-top: 34px;
+    font-size: 1.42rem;
+  }
+
+  .callout {
+    padding: 18px 20px;
+  }
+}
+
